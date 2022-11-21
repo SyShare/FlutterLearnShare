@@ -26,7 +26,7 @@ class CustomAlert extends StatelessWidget {
     dialogHeight = deviceHeight * (0.50);
 
     return MediaQuery(
-      data: MediaQueryData(),
+      data: const MediaQueryData(),
       child: GestureDetector(
         child: BackdropFilter(
           filter: ImageFilter.blur(
@@ -43,12 +43,12 @@ class CustomAlert extends StatelessWidget {
                   child: Stack(
                     children: <Widget>[
                       Center(
-                        child: Container(
+                        child: SizedBox(
                           width: deviceWidth * 0.9,
                           child: GestureDetector(
                             onTap: () {},
                             child: Card(
-                              shape: RoundedRectangleBorder(
+                              shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(10.0),
                                 ),

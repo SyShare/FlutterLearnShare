@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_one/newApp/models/category.dart';
+import 'package:flutter_one/newApp/ui/details/details.dart';
 import 'package:flutter_one/newApp/ui/splash.dart';
 import 'package:uuid/uuid.dart';
 
@@ -22,13 +23,12 @@ class BookListItem extends StatelessWidget {
       onTap: () {
         MyRouter.pushPage(
             context,
-            // Details(
-            //   entry: entry,
-            //   imgTag: imgTag,
-            //   titleTag: titleTag,
-            //   authorTag: authorTag,
-            // ),
-            SplashScreen());
+            Details(
+              entry: entry,
+              imgTag: imgTag,
+              titleTag: titleTag,
+              authorTag: authorTag,
+            ),);
       },
       child: Container(
         height: 150.0,

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_one/newApp/provider/app_provider.dart';
+import 'package:flutter_one/newApp/provider/details_provider.dart';
+import 'package:flutter_one/newApp/provider/favorites_provider.dart';
+import 'package:flutter_one/newApp/provider/genre_provider.dart';
 import 'package:flutter_one/newApp/provider/home_provder.dart';
 import 'package:flutter_one/newApp/theme/theme_config.dart';
 import 'package:flutter_one/newApp/ui/splash.dart';
@@ -11,7 +14,10 @@ void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => AppProvider()),
-      ChangeNotifierProvider(create: (context) => HomeProvider())
+      ChangeNotifierProvider(create: (context) => HomeProvider()),
+      ChangeNotifierProvider(create: (context) => DetailsProvider()),
+      ChangeNotifierProvider(create: (context) => FavoritesProvider()),
+      ChangeNotifierProvider(create: (context) => GenreProvider())
     ],
     child: const MyApp(),
   ));

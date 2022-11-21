@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_one/newApp/provider/home_provder.dart';
+import 'package:flutter_one/newApp/ui/genre/genre.dart';
 import 'package:flutter_one/newApp/ui/splash.dart';
 import 'package:flutter_one/newApp/util/consts.dart';
 import 'package:provider/provider.dart';
@@ -91,7 +92,7 @@ class _MainScreenState extends State<MainScreen>
             padding: const EdgeInsets.symmetric(horizontal: 15),
             scrollDirection: Axis.horizontal,
             itemCount: homeProvider.top.feed?.entry?.length ?? 0,
-            shrinkWrap: true,
+            shrinkWrap: false,
             itemBuilder: (context, index) {
               Entry entry = homeProvider.top.feed!.entry![index];
               return Padding(
@@ -129,7 +130,7 @@ class _MainScreenState extends State<MainScreen>
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
           scrollDirection: Axis.horizontal,
           itemCount: homeProvider.top.feed?.link?.length ?? 0,
-          shrinkWrap: true,
+          shrinkWrap: false,
           itemBuilder: (BuildContext context, int index) {
             Link link = homeProvider.top.feed!.link![index];
 
@@ -159,11 +160,10 @@ class _MainScreenState extends State<MainScreen>
                   onTap: () {
                     MyRouter.pushPage(
                         context,
-                        // Genre(
-                        //   title: '${link.title}',
-                        //   url: link.href!,
-                        // ),
-                        SplashScreen()
+                        Genre(
+                          title: '${link.title}',
+                          url: link.href!,
+                        ),
                     );
                   },
                   child: Center(

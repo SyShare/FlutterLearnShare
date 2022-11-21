@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_one/newApp/ui/main_screen.dart';
+import 'package:flutter_one/newApp/ui/settings/settings.dart';
+
+import 'explore.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,8 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: PageView(
         controller: _pageController,
         onPageChanged: onPageChanged,
-        children: [MainScreen(), MainScreen(), MainScreen()],
         physics: const NeverScrollableScrollPhysics(),
+        children: [const MainScreen(), const Explore(), Profile()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,
