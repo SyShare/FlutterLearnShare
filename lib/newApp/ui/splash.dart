@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_one/newApp/ui/login_screen.dart';
 
 import '../util/router.dart';
-import 'home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   changeScreen() async {
     MyRouter.pushPageReplacement(
       context,
-      const HomeScreen(),
+      const LoginScreen(),
     );
   }
 
