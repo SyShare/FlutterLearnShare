@@ -125,7 +125,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           border: InputBorder.none,
                           hintText: 'samarthagarwal@live.com',
                           hintStyle: TextStyle(color: widget.foregroundColor),
-                          prefixText: '521'
                         ),
                         onChanged: (s) => {
                           accountController.text = s

@@ -47,7 +47,7 @@ class _ProfileState extends State<Profile> {
       },
       {
         'icon': Feather.link,
-        'title': 'Licenses',
+        'title': 'LearDemo',
         'function': () => _pushPage(ButtonExample()),
       },
     ];
