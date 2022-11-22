@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_one/newApp/provider/app_provider.dart';
 import 'package:flutter_one/newApp/theme/theme_config.dart';
+import 'package:flutter_one/newApp/ui/buttons.dart';
 import 'package:flutter_one/newApp/ui/downloads/downloads.dart';
 import 'package:flutter_one/newApp/ui/favorites/favorites.dart';
 import 'package:flutter_one/newApp/util/router.dart';
@@ -43,6 +44,11 @@ class _ProfileState extends State<Profile> {
         'icon': Feather.file_text,
         'title': 'Licenses',
         'function': () => _pushPageDialog(LicensePage()),
+      },
+      {
+        'icon': Feather.link,
+        'title': 'Licenses',
+        'function': () => _pushPage(ButtonExample()),
       },
     ];
   }
