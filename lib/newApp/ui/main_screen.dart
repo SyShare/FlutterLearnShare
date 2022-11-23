@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_one/newApp/provider/home_provder.dart';
+import 'package:flutter_one/newApp/ui/buttons.dart';
+import 'package:flutter_one/newApp/ui/explore.dart';
+import 'package:flutter_one/newApp/ui/favorites/favorites.dart';
 import 'package:flutter_one/newApp/ui/genre/genre.dart';
-import 'package:flutter_one/newApp/ui/splash.dart';
+import 'package:flutter_one/newApp/ui/settings/settings.dart';
 import 'package:flutter_one/newApp/util/consts.dart';
+import 'package:flutter_one/widgets/widget_learn_demo.dart';
 import 'package:provider/provider.dart';
 
 import '../components/body_builder.dart';
@@ -34,20 +39,116 @@ class _MainScreenState extends State<MainScreen>
     super.dispose();
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return Consumer<HomeProvider>(builder: (context, homeProvider, child) {
       return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            Constants.appName,
-            style: const TextStyle(fontSize: 20),
+          key: _scaffoldKey,
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text(
+              Constants.appName,
+              style: const TextStyle(fontSize: 20),
+            ),
           ),
-        ),
-        body: buildBody(homeProvider),
-      );
+          body: buildBody(homeProvider),
+          drawer: Drawer(
+            child: Column(
+              children: [
+                UserAccountsDrawerHeader(
+                  accountName: const Text("your name"),
+                  accountEmail: const Text("your email"),
+                  currentAccountPicture: CircleAvatar(
+                    child: Image.network(
+                        'https://www.itying.com/images/flutter/3.png'),
+                  ),
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://www.itying.com/images/flutter/2.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  otherAccountsPictures: <Widget>[
+                    Image.network(
+                        'https://www.itying.com/images/flutter/4.png'),
+                    Image.network(
+                        'https://www.itying.com/images/flutter/5.png'),
+                    const Text('data')
+                  ],
+                ),
+                ListTile(
+                  leading: const CircleAvatar(
+                    child: Icon(Feather.home),
+                  ),
+                  title: const Text('Home'),
+                  onTap: () {
+                    _scaffoldKey.currentState?.closeDrawer();
+                    // Navigator.of(context).pop(); //隐藏侧边栏
+                    MyRouter.pushPage(context, const MainScreen());
+                  },
+                ),
+                const Divider(), // 增加一条线
+                ListTile(
+                    leading: const CircleAvatar(
+                      child: Icon(Feather.compass),
+                    ),
+                    title: const Text('Explore'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                      // Navigator.of(context).pop(); //隐藏侧边栏
+                      MyRouter.pushPage(context, const Explore());
+                    }),
+                const Divider(), // 增加一条线
+                ListTile(
+                    leading: const CircleAvatar(
+                      child: Icon(Feather.settings),
+                    ),
+                    title: const Text('Setting'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                      // Navigator.of(context).pop(); //隐藏侧边栏
+                      MyRouter.pushPage(context, Profile());
+                    }),
+                const Divider(), // 增加一条线
+                ListTile(
+                    leading: const CircleAvatar(
+                      child: Icon(Feather.heart),
+                    ),
+                    title: const Text('Favorites'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                      // Navigator.of(context).pop(); //隐藏侧边栏
+                      MyRouter.pushPage(context, Favorites());
+                    }),
+                const Divider(), // 增加一条线
+                ListTile(
+                    leading: const CircleAvatar(
+                      child: Icon(Feather.link),
+                    ),
+                    title: const Text('LearnDemo'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                      // Navigator.of(context).pop(); //隐藏侧边栏
+                      MyRouter.pushPage(context, ButtonExample());
+                    }),
+                const Divider(), // 增加一条线
+                ListTile(
+                    leading: const CircleAvatar(
+                      child: Icon(Icons.telegram),
+                    ),
+                    title: const Text('WidgetDemo'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                      // Navigator.of(context).pop(); //隐藏侧边栏
+                      MyRouter.pushPage(context, WidgetLearnDemo());
+                    }),
+              ],
+            ),
+          ));
     });
   }
 
@@ -96,8 +197,8 @@ class _MainScreenState extends State<MainScreen>
             itemBuilder: (context, index) {
               Entry entry = homeProvider.top.feed!.entry![index];
               return Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 15, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                 child: BookCard(ref: entry.link![1].href ?? "", entry: entry),
               );
             }));
@@ -141,14 +242,11 @@ class _MainScreenState extends State<MainScreen>
             }
 
             return Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 5.0, vertical: 10.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Theme
-                      .of(context)
-                      .colorScheme
-                      .secondary,
+                  color: Theme.of(context).colorScheme.secondary,
                   borderRadius: const BorderRadius.all(
                     Radius.circular(20.0),
                   ),
@@ -159,11 +257,11 @@ class _MainScreenState extends State<MainScreen>
                   ),
                   onTap: () {
                     MyRouter.pushPage(
-                        context,
-                        Genre(
-                          title: '${link.title}',
-                          url: link.href!,
-                        ),
+                      context,
+                      Genre(
+                        title: '${link.title}',
+                        url: link.href!,
+                      ),
                     );
                   },
                   child: Center(
@@ -205,5 +303,4 @@ class _MainScreenState extends State<MainScreen>
       },
     );
   }
-
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_one/newApp/ui/home_screen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../util/router.dart';
-
+import '../../util/router.dart';
 
 class LoginScreen extends StatefulWidget {
   final Color? backgroundColor1 = const Color(0xFF444152);
@@ -18,16 +18,10 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-
-
-
 class _LoginScreenState extends State<LoginScreen> {
-
   var account = "";
 
-  TextEditingController accountController = TextEditingController(
-
-  );
+  TextEditingController accountController = TextEditingController();
 
   TextEditingController pwdController = TextEditingController();
 
@@ -117,18 +111,22 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Expanded(
                       child: TextField(
-                        controller: accountController,
+                        // controller: accountController,
                         textAlign: TextAlign.center,
                         maxLines: 1,
                         maxLength: 11,
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18
+                        ),
+                        textDirection: TextDirection.ltr,
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: 'samarthagarwal@live.com',
+                          hintText: '521xxxx',
                           hintStyle: TextStyle(color: widget.foregroundColor),
                         ),
-                        onChanged: (s) => {
-                          accountController.text = s
-                        },
+                        onChanged: (s) => {accountController.text = s},
+                        keyboardType: TextInputType.number,
                       ),
                     ),
                   ],
@@ -153,8 +151,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Padding(
-                      padding:
-                          const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 00.0),
+                      padding: const EdgeInsets.only(
+                          top: 10.0, bottom: 10.0, right: 00.0),
                       child: Icon(
                         Icons.lock_open,
                         color: widget.foregroundColor,
@@ -162,19 +160,23 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Expanded(
                       child: TextField(
-                        controller: pwdController,
+                        // controller: pwdController,
                         obscureText: false,
                         maxLines: 1,
                         maxLength: 4,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18
+                        ),
+                        textDirection: TextDirection.ltr,
                         textAlign: TextAlign.center,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: '8231OR7677',
                           hintStyle: TextStyle(color: widget.foregroundColor),
                         ),
-                        onChanged: (s) => {
-                        pwdController.text = s
-                        },
+                        onChanged: (s) => {pwdController.text = s},
+                        keyboardType: TextInputType.number,
                       ),
                     ),
                   ],
@@ -192,12 +194,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 20.0),
                         color: widget.highlightColor,
-                        onPressed: () => {
-                          jumpHomePage()
-                        },
+                        onPressed: () => {jumpHomePage()},
                         child: Text(
                           "Log In",
-                          style: TextStyle(color:widget.foregroundColor),
+                          style: TextStyle(color: widget.foregroundColor),
                         ),
                       ),
                     ),
@@ -261,7 +261,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   jumpHomePage() {
-    if(accountController.text.isEmpty){
+    if (accountController.text.isEmpty) {
       Fluttertoast.showToast(
         msg: '请输入账号',
         toastLength: Toast.LENGTH_SHORT,
@@ -269,7 +269,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       return;
     }
-    if(pwdController.text.isEmpty){
+    if (pwdController.text.isEmpty) {
       Fluttertoast.showToast(
         msg: '请输入密码',
         toastLength: Toast.LENGTH_SHORT,
@@ -281,6 +281,5 @@ class _LoginScreenState extends State<LoginScreen> {
       context,
       const HomeScreen(),
     );
-
   }
 }

@@ -14,6 +14,17 @@ class MyRouter{
     return val;
   }
 
+  static Future pushPageByBuilder(BuildContext context, WidgetBuilder builder) {
+    var val = Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: builder,
+      ),
+    );
+
+    return val;
+  }
+
   static Future pushPageDialog(BuildContext context, Widget page) {
     var val = Navigator.push(
       context,

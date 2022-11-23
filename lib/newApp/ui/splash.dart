@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_one/newApp/ui/login_screen.dart';
+import 'package:flutter_one/newApp/ui/login/login_page.dart';
+import 'package:flutter_one/newApp/ui/login/login_screen.dart';
 
 import '../util/router.dart';
 
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   changeScreen() async {
     MyRouter.pushPageReplacement(
       context,
-      const LoginScreen(),
+       LoginScreen(),
     );
   }
 
