@@ -36,6 +36,105 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Recommend提升UI生产力
 
-| Name                                             | Usage      |
-|--------------------------------------------------|------------|
-| [**常用UI推荐库**](https://juejin.cn/post/7147437014026043399) | UI Plugins |
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**常用UI推荐库**](https://juejin.cn/post/7147437014026043399) | UI Plugins                          |
+| [**贝壳bruno**](https://github.com/LianjiaTech/bruno)       | <img src="ss/ui01.png" width="400"> |
+| [**getwidget**](https://github.com/ionicfirebaseapp/getwidget)      | <img src="ss/ui02.png" width="400"> |
+| [**fsuper**](https://github.com/Fliggy-Mobile/fsuper)       | <img src="ss/ui03.png" width="400"> |
+| [**fluttercandies**](https://github.com/fluttercandies)       | UI Plugins |
+
+### AppBar
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**draggable_home**](https://github.com/4-alok/draggable_home) | UI Plugins                          |
+| [**extended_sliver**](https://github.com/fluttercandies/extended_sliver)       | UI Plugins |
+| [**scroll_app_bar**](https://github.com/edsonbonfim/scroll_bars/tree/master/scroll_app_bar)      | UI Plugins |
+
+
+### Drawer
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**sidebarx**](https://github.com/Frezyx/sidebarx) | UI Plugins                          |
+| [**flutter_advanced_drawer**](https://github.com/alex-melnyk/flutter_advanced_drawer)       | UI Plugins |
+| [**curved_drawer**](https://github.com/undrbridge/curved_drawer)      | UI Plugins |
+
+
+### Tarbar
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**flutter-cupertino-tabbar**](https://github.com/aliyigitbireroglu/flutter-cupertino-tabbar) | UI Plugins                          |
+| [**tab_indicator_styler**](https://github.com/adar2378/tab_indicator_styler)       | UI Plugins |
+| [**tab_container**](https://github.com/sourcemain/tab_container)      | UI Plugins |
+
+
+### BottomBar
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**curved_navigation_bar**](https://github.com/rafalbednarczuk/curved_navigation_bar) | UI Plugins                          |
+| [**salomon_bottom_bar**](https://github.com/lukepighetti/salomon_bottom_bar)       | UI Plugins |
+| [**bubble_bottom_bar**](https://github.com/westdabestdb/bubble_bottom_bar)      | UI Plugins |
+
+
+###  Splash
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**concentric_transition**](https://pub.dev/packages/concentric_transition) | UI Plugins                          |
+| [**nice_intro**](https://github.com/Ethiel97/nice_intro)       | UI Plugins |
+| [**IntroViews-Flutter**](https://github.com/aagarwal1012/IntroViews-Flutter)      | UI Plugins |
+
+
+
+
+### 角标
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**flutter_badges**](https://github.com/yadaniyil/flutter_badges) | UI Plugins                          |
+| [**corner_decoration**](https://github.com/kalaganov/corner_decoration)       | UI Plugins |
+
+
+### 动画按键
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**FlutterAnimatedButton**](https://github.com/NikhilVadoliya/FlutterAnimatedButton) | UI Plugins                          |
+| [**progress-state-button**](https://github.com/slm/progress-state-button)       | UI Plugins |
+
+
+### 头像
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**avatar_stack**](https://github.com/cyrax111/avatar_stack) | UI Plugins                          |
+| [**overflow_view**](https://github.com/letsar/overflow_view)       | UI Plugins |
+
+
+### swipe 卡片
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**swipe_deck**](https://github.com/retroportalstudio/swipe_deck.git) | UI Plugins                          |
+| [**cta-flutter-tinder-card-animation**](https://github.com/codetoart/cta-flutter-tinder-card-animation)       | UI Plugins |
+| [**appinio_swiper**](https://github.com/appinioGmbH/flutter_packages/tree/main/packages/appinio_swiper)       | UI Plugins |
+
+
+### bottom sheet
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**we_slide**](https://github.com/luciano-work/we_slide) | UI Plugins                          |
+| [**sliding_up_panel**](https://github.com/akshathjain/sliding_up_panel)       | UI Plugins |
+
+
+### 时间轴 UI
+
+| Name                                                      | Usage                               |
+|-----------------------------------------------------------|-------------------------------------|
+| [**timeline_tile**](https://github.com/JHBitencourt/timeline_tile) | UI Plugins                          |
+| [**timelines**](https://pub.dev/packages/timelines)       | UI Plugins |
