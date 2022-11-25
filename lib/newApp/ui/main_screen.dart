@@ -8,6 +8,7 @@ import 'package:flutter_one/newApp/ui/favorites/favorites.dart';
 import 'package:flutter_one/newApp/ui/genre/genre.dart';
 import 'package:flutter_one/newApp/ui/settings/settings.dart';
 import 'package:flutter_one/newApp/util/consts.dart';
+import 'package:flutter_one/widget/widget_main.dart';
 import 'package:flutter_one/widgets/widget_learn_demo.dart';
 import 'package:provider/provider.dart';
 
@@ -61,9 +62,19 @@ class _MainScreenState extends State<MainScreen>
                 UserAccountsDrawerHeader(
                   accountName: const Text("your name"),
                   accountEmail: const Text("your email"),
-                  currentAccountPicture: CircleAvatar(
-                    child: Image.network(
-                        'https://www.itying.com/images/flutter/3.png'),
+                  currentAccountPicture: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(color: Theme.of(context).cardColor, blurRadius: 4.0)
+                      ],
+                      shape: BoxShape.circle,
+                    ),
+                    child:  CircleAvatar(
+                      child: Image.network(
+                          'https://www.itying.com/images/flutter/3.png'),
+                    ),
                   ),
                   decoration: const BoxDecoration(
                     image: DecorationImage(
@@ -145,6 +156,17 @@ class _MainScreenState extends State<MainScreen>
                       _scaffoldKey.currentState?.closeDrawer();
                       // Navigator.of(context).pop(); //隐藏侧边栏
                       MyRouter.pushPage(context, WidgetLearnDemo());
+                    }),
+                const Divider(), // 增加一条线
+                ListTile(
+                    leading: const CircleAvatar(
+                      child: Icon(Icons.telegram),
+                    ),
+                    title: const Text('GSYWidgetDemo'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                      // Navigator.of(context).pop(); //隐藏侧边栏
+                      MyRouter.pushPage(context,  GSYMyApp());
                     }),
               ],
             ),
