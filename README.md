@@ -26,13 +26,24 @@ samples, guidance on mobile development, and a full API reference.
 
 ## 🔌 Plugins
 
-| Name                                                    | Usage                                               |
-| ------------------------------------------------------- | --------------------------------------------------- |
-| [**Provider**](https://pub.dev/packages/provider)       | State Management                                    |
-| [**Object DB**](https://pub.dev/packages/objectdb)      | NoSQL database to store Favorites & Downloads       |
-| [**XML2JSON**](https://pub.dev/packages/xml2json)       | Convert XML to JSON                                 |
-| [**DIO**](https://pub.dev/packages/dio)                 | Network calls and File Download                     |
-| [**EPub Viewer**](https://pub.dev/packages/epub_viewer) | A flutter plugin for Folioreader to read ePub files |
+| Name                                                               | Usage                                               |
+|--------------------------------------------------------------------| --------------------------------------------------- |
+| [**Provider**](https://pub.dev/packages/provider)                  | State Management                                    |
+| [**Object DB**](https://pub.dev/packages/objectdb)                 | NoSQL database to store Favorites & Downloads       |
+| [**XML2JSON**](https://pub.dev/packages/xml2json)                  | Convert XML to JSON                                 |
+| [**DIO**](https://pub.dev/packages/dio)                            | Network calls and File Download                     |
+| [**EPub Viewer**](https://pub.dev/packages/epub_viewer)            | A flutter plugin for Folioreader to read ePub files |
+
+
+## 🔌 Search Plugins Resources
+
+| Name                                                                           | Usage                |
+|--------------------------------------------------------------------------------|----------------------|
+| [**DartPackage**](https://pub.flutter-io.cn/)                                  | 插件搜索库                |
+| [**gsy_flutter_book**](https://github.com/CarGuo/gsy_flutter_book/blob/master) | Flutter学习避坑教程        |
+| [**add-to-app**](https://flutter.cn/docs/development/add-to-app)               | Flutter to NativeApp |
+| [**Flutter Kno**](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5OTYxODg2OQ==&action=getalbum&album_id=2282930670148714499&scene=173&from_msgid=2247483852&from_itemidx=1&count=3&nolastread=1#wechat_redirect)                                | 博客知识解析               |
+| [**Flutter Example **](https://flutterbyexample.com/) | A complete Dart and Flutter tutorial |
 
 ## Recommend提升UI生产力
 
