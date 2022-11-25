@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         controller: _pageController,
         onPageChanged: onPageChanged,
         physics: const NeverScrollableScrollPhysics(),
-        children: [const MainScreen(), const Explore(), Profile()],
+        children: [ MainScreen(pageController: _pageController,), const Explore(), Profile()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,

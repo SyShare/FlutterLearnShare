@@ -20,7 +20,10 @@ import 'book_card.dart';
 import 'book_list_item.dart';
 const canvasColor = Color(0xFF2E2E48);
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+
+  final PageController pageController;
+
+   MainScreen({Key? key,required this.pageController}) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -103,24 +106,24 @@ class _MainScreenState extends State<MainScreen>
               SidebarXItem(icon: Icons.home, label: 'Home',onTap: () {
                           _scaffoldKey.currentState?.closeDrawer();
                           // Navigator.of(context).pop(); //隐藏侧边栏
-                          MyRouter.pushPage(context, const MainScreen());
+                          widget.pageController.jumpToPage(0);
               }),
               SidebarXItem(icon: Feather.compass, label: 'Explore',onTap: (){
                             _scaffoldKey.currentState?.closeDrawer();
                             // Navigator.of(context).pop(); //隐藏侧边栏
-                            MyRouter.pushPage(context, const Explore());
+                            widget.pageController.jumpToPage(1);
               }),
               SidebarXItem(icon: Feather.settings, label: 'Settings',onTap: (){
                             _scaffoldKey.currentState?.closeDrawer();
                             // Navigator.of(context).pop(); //隐藏侧边栏
-                            MyRouter.pushPage(context, Profile());
+                            widget.pageController.jumpToPage(2);
               }),
               SidebarXItem(icon: Feather.heart, label: 'Favorites',onTap: (){
                 _scaffoldKey.currentState?.closeDrawer();
                 // Navigator.of(context).pop(); //隐藏侧边栏
-                MyRouter.pushPage(context, Profile());
+                MyRouter.pushPage(context, Favorites());
               }),
-              SidebarXItem(icon: Feather.link, label: 'LearnDemo',onTap: (){
+              SidebarXItem(icon: Feather.link, label: 'ButtonExample',onTap: (){
                 _scaffoldKey.currentState?.closeDrawer();
                 // Navigator.of(context).pop(); //隐藏侧边栏
                 MyRouter.pushPage(context, ButtonExample());
