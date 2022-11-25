@@ -279,7 +279,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
     MyRouter.pushPageReplacement(
       context,
-      const HomeScreen(),
+       HomeScreen(),
     );
   }
 }

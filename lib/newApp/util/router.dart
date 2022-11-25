@@ -1,10 +1,11 @@
+import 'package:concentric_transition/concentric_transition.dart';
 import 'package:flutter/material.dart';
 
-class MyRouter{
+class MyRouter {
   static Future pushPage(BuildContext context, Widget page) {
     var val = Navigator.push(
       context,
-      MaterialPageRoute(
+      ConcentricPageRoute(
         builder: (BuildContext context) {
           return page;
         },
@@ -17,7 +18,7 @@ class MyRouter{
   static Future pushPageByBuilder(BuildContext context, WidgetBuilder builder) {
     var val = Navigator.push(
       context,
-      MaterialPageRoute(
+      ConcentricPageRoute(
         builder: builder,
       ),
     );
@@ -28,7 +29,7 @@ class MyRouter{
   static Future pushPageDialog(BuildContext context, Widget page) {
     var val = Navigator.push(
       context,
-      MaterialPageRoute(
+      ConcentricPageRoute(
         builder: (BuildContext context) {
           return page;
         },
@@ -42,7 +43,7 @@ class MyRouter{
   static pushPageReplacement(BuildContext context, Widget page) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(
+      ConcentricPageRoute(
         builder: (BuildContext context) {
           return page;
         },

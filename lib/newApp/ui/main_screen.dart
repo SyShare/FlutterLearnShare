@@ -11,13 +11,14 @@ import 'package:flutter_one/newApp/util/consts.dart';
 import 'package:flutter_one/widget/widget_main.dart';
 import 'package:flutter_one/widgets/widget_learn_demo.dart';
 import 'package:provider/provider.dart';
+import 'package:sidebarx/sidebarx.dart';
 
 import '../components/body_builder.dart';
 import '../models/category.dart';
 import '../util/router.dart';
 import 'book_card.dart';
 import 'book_list_item.dart';
-
+const canvasColor = Color(0xFF2E2E48);
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -56,121 +57,195 @@ class _MainScreenState extends State<MainScreen>
             ),
           ),
           body: buildBody(homeProvider),
-          drawer: Drawer(
-            child: Column(
-              children: [
-                UserAccountsDrawerHeader(
-                  accountName: const Text("your name"),
-                  accountEmail: const Text("your email"),
-                  currentAccountPicture: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(color: Theme.of(context).cardColor, blurRadius: 4.0)
+          drawer: SidebarX(
+            headerBuilder: (context,extended){
+              return UserAccountsDrawerHeader(
+                      accountName: const Text("your name",style: TextStyle(
+                        color: Colors.white
+                      ),),
+                      accountEmail: const Text("your email",style: TextStyle(
+                          color: Colors.white
+                      )),
+                      currentAccountPicture: Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(color: Theme.of(context).cardColor, blurRadius: 4.0)
+                          ],
+                          shape: BoxShape.circle,
+                        ),
+                        child:  CircleAvatar(
+                          child: Image.network(
+                              'https://www.itying.com/images/flutter/3.png'),
+                        ),
+                      ),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                              'https://www.itying.com/images/flutter/2.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      otherAccountsPictures: <Widget>[
+                        Image.network(
+                            'https://www.itying.com/images/flutter/4.png'),
+                        Image.network(
+                            'https://www.itying.com/images/flutter/5.png'),
+                        const Text('data',style: TextStyle(
+                            color: Colors.white
+                        ))
                       ],
-                      shape: BoxShape.circle,
-                    ),
-                    child:  CircleAvatar(
-                      child: Image.network(
-                          'https://www.itying.com/images/flutter/3.png'),
-                    ),
-                  ),
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          'https://www.itying.com/images/flutter/2.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  otherAccountsPictures: <Widget>[
-                    Image.network(
-                        'https://www.itying.com/images/flutter/4.png'),
-                    Image.network(
-                        'https://www.itying.com/images/flutter/5.png'),
-                    const Text('data')
-                  ],
-                ),
-                ListTile(
-                  leading: const CircleAvatar(
-                    child: Icon(Feather.home),
-                  ),
-                  title: const Text('Home'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                    // Navigator.of(context).pop(); //隐藏侧边栏
-                    MyRouter.pushPage(context, const MainScreen());
-                  },
-                ),
-                const Divider(), // 增加一条线
-                ListTile(
-                    leading: const CircleAvatar(
-                      child: Icon(Feather.compass),
-                    ),
-                    title: const Text('Explore'),
-                    onTap: () {
-                      _scaffoldKey.currentState?.closeDrawer();
-                      // Navigator.of(context).pop(); //隐藏侧边栏
-                      MyRouter.pushPage(context, const Explore());
-                    }),
-                const Divider(), // 增加一条线
-                ListTile(
-                    leading: const CircleAvatar(
-                      child: Icon(Feather.settings),
-                    ),
-                    title: const Text('Setting'),
-                    onTap: () {
-                      _scaffoldKey.currentState?.closeDrawer();
-                      // Navigator.of(context).pop(); //隐藏侧边栏
-                      MyRouter.pushPage(context, Profile());
-                    }),
-                const Divider(), // 增加一条线
-                ListTile(
-                    leading: const CircleAvatar(
-                      child: Icon(Feather.heart),
-                    ),
-                    title: const Text('Favorites'),
-                    onTap: () {
-                      _scaffoldKey.currentState?.closeDrawer();
-                      // Navigator.of(context).pop(); //隐藏侧边栏
-                      MyRouter.pushPage(context, Favorites());
-                    }),
-                const Divider(), // 增加一条线
-                ListTile(
-                    leading: const CircleAvatar(
-                      child: Icon(Feather.link),
-                    ),
-                    title: const Text('LearnDemo'),
-                    onTap: () {
-                      _scaffoldKey.currentState?.closeDrawer();
-                      // Navigator.of(context).pop(); //隐藏侧边栏
-                      MyRouter.pushPage(context, ButtonExample());
-                    }),
-                const Divider(), // 增加一条线
-                ListTile(
-                    leading: const CircleAvatar(
-                      child: Icon(Icons.telegram),
-                    ),
-                    title: const Text('WidgetDemo'),
-                    onTap: () {
-                      _scaffoldKey.currentState?.closeDrawer();
-                      // Navigator.of(context).pop(); //隐藏侧边栏
-                      MyRouter.pushPage(context, WidgetLearnDemo());
-                    }),
-                const Divider(), // 增加一条线
-                ListTile(
-                    leading: const CircleAvatar(
-                      child: Icon(Icons.telegram),
-                    ),
-                    title: const Text('GSYWidgetDemo'),
-                    onTap: () {
-                      _scaffoldKey.currentState?.closeDrawer();
-                      // Navigator.of(context).pop(); //隐藏侧边栏
-                      MyRouter.pushPage(context,  GSYMyApp());
-                    }),
-              ],
+                    );
+            },
+            controller: SidebarXController(selectedIndex: 0, extended: true),
+            items:  [
+              SidebarXItem(icon: Icons.home, label: 'Home',onTap: () {
+                          _scaffoldKey.currentState?.closeDrawer();
+                          // Navigator.of(context).pop(); //隐藏侧边栏
+                          MyRouter.pushPage(context, const MainScreen());
+              }),
+              SidebarXItem(icon: Feather.compass, label: 'Explore',onTap: (){
+                            _scaffoldKey.currentState?.closeDrawer();
+                            // Navigator.of(context).pop(); //隐藏侧边栏
+                            MyRouter.pushPage(context, const Explore());
+              }),
+              SidebarXItem(icon: Feather.settings, label: 'Settings',onTap: (){
+                            _scaffoldKey.currentState?.closeDrawer();
+                            // Navigator.of(context).pop(); //隐藏侧边栏
+                            MyRouter.pushPage(context, Profile());
+              }),
+              SidebarXItem(icon: Feather.heart, label: 'Favorites',onTap: (){
+                _scaffoldKey.currentState?.closeDrawer();
+                // Navigator.of(context).pop(); //隐藏侧边栏
+                MyRouter.pushPage(context, Profile());
+              }),
+              SidebarXItem(icon: Feather.link, label: 'LearnDemo',onTap: (){
+                _scaffoldKey.currentState?.closeDrawer();
+                // Navigator.of(context).pop(); //隐藏侧边栏
+                MyRouter.pushPage(context, ButtonExample());
+              }),
+              SidebarXItem(icon: Feather.link, label: 'WidgetLearnDemo',onTap: (){
+                _scaffoldKey.currentState?.closeDrawer();
+                // Navigator.of(context).pop(); //隐藏侧边栏
+                MyRouter.pushPage(context, WidgetLearnDemo());
+              }),
+              SidebarXItem(icon: Feather.link, label: 'GSYWidgetDemo',onTap: (){
+                _scaffoldKey.currentState?.closeDrawer();
+                // Navigator.of(context).pop(); //隐藏侧边栏
+                MyRouter.pushPage(context,  GSYMyApp());
+              }),
+            ],
+            separatorBuilder: (context,index){
+              return const Divider();
+            },
+            theme:   SidebarXTheme(
+              margin: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
+              textStyle: const TextStyle(color: Colors.white),
+              selectedTextStyle: const TextStyle(color: Colors.white),
+              itemTextPadding: const EdgeInsets.only(left: 30),
+              selectedItemTextPadding: const EdgeInsets.only(left: 30),
+              decoration: BoxDecoration(
+                color: canvasColor,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              iconTheme: const IconThemeData(
+                color: Colors.white,
+                size: 20,
+              ),
             ),
-          ));
+            extendedTheme: const SidebarXTheme(
+              width: 300,
+              decoration: BoxDecoration(
+                color: canvasColor,
+              ),
+            ),
+          ),
+          // drawer: Drawer(
+          //   child: Column(
+          //     children: [
+
+          //       ListTile(
+          //         leading: const CircleAvatar(
+          //           child: Icon(Feather.home),
+          //         ),
+          //         title: const Text('Home'),
+          //         onTap: () {
+          //           _scaffoldKey.currentState?.closeDrawer();
+          //           // Navigator.of(context).pop(); //隐藏侧边栏
+          //           MyRouter.pushPage(context, const MainScreen());
+          //         },
+          //       ),
+          //       const Divider(), // 增加一条线
+          //       ListTile(
+          //           leading: const CircleAvatar(
+          //             child: Icon(Feather.compass),
+          //           ),
+          //           title: const Text('Explore'),
+          //           onTap: () {
+          //             _scaffoldKey.currentState?.closeDrawer();
+          //             // Navigator.of(context).pop(); //隐藏侧边栏
+          //             MyRouter.pushPage(context, const Explore());
+          //           }),
+          //       const Divider(), // 增加一条线
+          //       ListTile(
+          //           leading: const CircleAvatar(
+          //             child: Icon(Feather.settings),
+          //           ),
+          //           title: const Text('Setting'),
+          //           onTap: () {
+          //             _scaffoldKey.currentState?.closeDrawer();
+          //             // Navigator.of(context).pop(); //隐藏侧边栏
+          //             MyRouter.pushPage(context, Profile());
+          //           }),
+          //       const Divider(), // 增加一条线
+          //       ListTile(
+          //           leading: const CircleAvatar(
+          //             child: Icon(Feather.heart),
+          //           ),
+          //           title: const Text('Favorites'),
+          //           onTap: () {
+          //             _scaffoldKey.currentState?.closeDrawer();
+          //             // Navigator.of(context).pop(); //隐藏侧边栏
+          //             MyRouter.pushPage(context, Favorites());
+          //           }),
+          //       const Divider(), // 增加一条线
+          //       ListTile(
+          //           leading: const CircleAvatar(
+          //             child: Icon(Feather.link),
+          //           ),
+          //           title: const Text('LearnDemo'),
+          //           onTap: () {
+          //             _scaffoldKey.currentState?.closeDrawer();
+          //             // Navigator.of(context).pop(); //隐藏侧边栏
+          //             MyRouter.pushPage(context, ButtonExample());
+          //           }),
+          //       const Divider(), // 增加一条线
+          //       ListTile(
+          //           leading: const CircleAvatar(
+          //             child: Icon(Icons.telegram),
+          //           ),
+          //           title: const Text('WidgetDemo'),
+          //           onTap: () {
+          //             _scaffoldKey.currentState?.closeDrawer();
+          //             // Navigator.of(context).pop(); //隐藏侧边栏
+          //             MyRouter.pushPage(context, WidgetLearnDemo());
+          //           }),
+          //       const Divider(), // 增加一条线
+          //       ListTile(
+          //           leading: const CircleAvatar(
+          //             child: Icon(Icons.telegram),
+          //           ),
+          //           title: const Text('GSYWidgetDemo'),
+          //           onTap: () {
+          //             _scaffoldKey.currentState?.closeDrawer();
+          //             // Navigator.of(context).pop(); //隐藏侧边栏
+          //             MyRouter.pushPage(context,  GSYMyApp());
+          //           }),
+          //     ],
+          //   ),
+          // )
+      );
     });
   }
 
